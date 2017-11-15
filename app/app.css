@@ -1,0 +1,77 @@
+.main {
+    border: 3px solid black;
+    width:70%;
+    height:90vh;
+    margin:auto ;
+
+}
+.main2 {
+    width:82%;
+    height:70vh;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+.form-field{
+    border: 2px solid black;
+    height:150px;
+    margin: 20px;
+    width: 500px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.blockTitle {
+    width: 400px;
+    Font-size: 20px;
+}
+
+.nextItem {
+    width: 130px;
+    height: 30px;
+
+    border: 2px solid black;
+    padding: 3px;
+}
+input {
+    max-width: 170px;
+    margin: 3px;
+}
+form {  
+    height:50px;
+    display: flex;
+    width: 480px;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    margin-top: -20px;
+}
+.Lists {
+    width: 500px;
+   
+    margin:20px;
+}
+table {
+    width: 500px;
+    
+}
+table, th, td, tr {
+    text-align: center;
+    border: 1px solid black;
+    border-collapse: collapse;
+    min-width: 30px;
+}
+.buttons{
+    margin:10px 0 0 0px;
+}
+.Filters{
+    margin:0 0 0 10px
+}
+.errormg{
+    color: red;
+    font-size: 14px;
+}
