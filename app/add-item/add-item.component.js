@@ -9,11 +9,10 @@ component('addItem', {
     } else { $scope.todoList = JSON.parse(localStorage.getItem('todoList'))}
     
       $scope.addData = function () {
-     debugger;
             if ( $scope.personName === undefined || $scope.Phone === undefined || $scope.byTime  === undefined) {
                 $scope.error ="Please fill all fields";
                 return;
-            } else  {
+            } else {
               $scope.todoList.push({
                                   personName:$scope.personName, 
                                   Phone:((($scope.Phone).replace(/\+/, "00")).replace(/(\(|\)|-)/g, "")),
