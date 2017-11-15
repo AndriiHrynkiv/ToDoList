@@ -14,7 +14,6 @@ component('addItem', {
                 $scope.error ="Please fill all fields";
                 return;
             } else  {
-              console.log("bad");
               $scope.todoList.push({
                                   personName:$scope.personName, 
                                   Phone:((($scope.Phone).replace(/\+/, "00")).replace(/(\(|\)|-)/g, "")),
