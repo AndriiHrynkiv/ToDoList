@@ -13,7 +13,8 @@ component('addItem', {
             if ( $scope.personName === undefined || $scope.Phone === undefined || $scope.byTime  === undefined) {
                 $scope.error ="Please fill all fields";
                 return;
-            } else {
+            } else  {
+              console.log("bad");
               $scope.todoList.push({
                                   personName:$scope.personName, 
                                   Phone:((($scope.Phone).replace(/\+/, "00")).replace(/(\(|\)|-)/g, "")),
@@ -21,13 +22,12 @@ component('addItem', {
                                   Delete:"",
                                   Done:false
                               }); 
-                              console.log($scope.Phone);
                           } 
            
        }
 
          $scope.sortBy = function(propertyName) {
-            $scope.reverse = ($scope.propertyName === propertyName) ? !$scope.reverse : false;
+            $scope.reverse = ($scope.propertyName === propertyName) ? $scope.reverse : false;
             $scope.propertyName = propertyName;
           };
 
@@ -66,7 +66,6 @@ component('addItem', {
                     }
                   })  
           }   
-         localStorage.clear();
         }
     ]
 });
