@@ -21,7 +21,6 @@ component('addItem', {
                                   Done:false
                               }); 
                           } 
-           
        }
 
          $scope.sortBy = function(propertyName) {
@@ -62,8 +61,8 @@ component('addItem', {
                     else {
                       return b;
                     }
-                  })  
-          }   
+                  })      
+          } 
         }
     ]
 });
