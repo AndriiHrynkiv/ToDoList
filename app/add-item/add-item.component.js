@@ -9,7 +9,7 @@ component('addItem', {
     } else { $scope.todoList = JSON.parse(localStorage.getItem('todoList'))}
     
       $scope.addData = function () {
-            if ( $scope.personName === undefined || $scope.Phone === undefined || $scope.byTime  === undefined) {
+            if ( $scope.personName === undefined || $scope.Phone === undefined || $scope.byTime  === null) {
                 $scope.error ="Please fill all fields";
                 return;
             } else {
@@ -20,11 +20,11 @@ component('addItem', {
                                   Delete:"",
                                   Done:false
                               }); 
-                          } 
+                          }       
        }
 
          $scope.sortBy = function(propertyName) {
-            $scope.reverse = ($scope.propertyName === propertyName) ? $scope.reverse : false;
+            $scope.reverse = ($scope.propertyName === propertyName) ? !$scope.reverse : false;
             $scope.propertyName = propertyName;
           };
 
@@ -61,8 +61,8 @@ component('addItem', {
                     else {
                       return b;
                     }
-                  })      
-          } 
+                  })  
+          }   
         }
     ]
 });
