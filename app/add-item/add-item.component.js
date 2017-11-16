@@ -25,7 +25,6 @@ component('addItem', {
       } else {$scope.error=""}
 
       if (PhoneChekcPart.match(testExpresin) && PhoneChekcPart.match(testExpresin).length > 1) {   
-            console.log(PhoneChekcPart.match(test2).length)  ;
             $scope.error="Please enter correct phone number";
             return; 
       } else {$scope.error=""}
