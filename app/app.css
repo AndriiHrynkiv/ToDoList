@@ -2,8 +2,8 @@
     border: 3px solid black;
     width:70%;
     height:90vh;
-    margin:auto ;
-
+    margin:auto;
+    overflow: auto;
 }
 .main2 {
     width:82%;
@@ -14,6 +14,7 @@
     align-items: center;
     flex-wrap: wrap;
     justify-content: flex-end;
+
 }
 .form-field{
     border: 2px solid black;
