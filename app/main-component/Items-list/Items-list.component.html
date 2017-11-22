@@ -8,7 +8,7 @@
             <td>Delete</td>
             <td></td>
         </tr>
-        <tr ng-repeat="oneitem in vm.updatedList | orderBy:vm.propertyName: vm.reverse | filter: myFilter track by $index">
+        <tr ng-repeat="oneitem in vm.updatedList | orderBy: vm.propertyName: vm.reverse | filter: myFilter track by $index">
                 <td>{{oneitem.personName }}</td>
                 <td>{{oneitem.Phone}}</td>
                 <td>{{oneitem.byTime | date : "HH:mm"}}</td>

@@ -3,8 +3,8 @@
     <p class="blockTitle">Add Call</p>
     <form name="Data" ng-submit="vm.fromForm()">
         <input type="text" ng-model="vm.personName" placeholder="Name" maxlength="30"></input>
-        <input type="tel" ng-model="vm.Phone"  placeholder="Phone number"></input>
-        <input type="time" ng-model="vm.byTime" placeholder="Time"></input>
+        <input type="tel" ng-model="vm.Phone"  placeholder="Phone number" maxlength="15"></input>
+        <input type="time" ng-model="vm.byTime"></input>
         <input type="submit" value="Add" ></input>
     </form>
   <p class="errormg">{{vm.error}}</p>

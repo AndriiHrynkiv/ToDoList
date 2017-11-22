@@ -14,7 +14,7 @@ function CreateItemsList($scope) {
 
     var vm = this;
     vm.updatedList = vm.list;
-    
+
     $scope.$on('eventBroadcastedName', function (event, data) {
         vm.updatedList = data;
         $scope.$apply();

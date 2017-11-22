@@ -35,7 +35,7 @@ function collectComponents($scope) {
         }
 
         vm.itemsList = vm.storageList.map(getNewArray);
-        vm.sortedList = vm.storageList.sort(getNearItem);
+        vm.sortedList = vm.itemsList.sort(getNearItem);
 
         localStorage.setItem('todoList', JSON.stringify(vm.sortedList));
         vm.storageList = JSON.parse(localStorage.getItem('todoList'));
@@ -44,18 +44,20 @@ function collectComponents($scope) {
 
 
     vm.Data = function (item) {
+
         vm.item = item;
         vm.storageList.push(item);
         vm.filterListbyTime();
+
     };
 
     setInterval(function () {
-        vm.previousList = JSON.parse(localStorage.getItem('todoList'));
+        // vm.previousList = JSON.parse(localStorage.getItem('todoList'));
         vm.filterListbyTime();
-        if (!(angular.equals(vm.previousList, vm.storageList))) {
-            $scope.$broadcast('eventBroadcastedName', vm.storageList);
-        }
-    }, 10000);
+        //if (!(angular.equals(vm.previousList, vm.storageList))) {
+        $scope.$broadcast('eventBroadcastedName', vm.storageList);
+        // }
+    }, 1000);
 
 }
 
