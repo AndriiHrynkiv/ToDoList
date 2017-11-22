@@ -4,6 +4,8 @@
     height:90vh;
     margin:auto;
     overflow: auto;
+    display: flex;
+    flex-direction: row;
 }
 .main2 {
     width:82%;
@@ -21,7 +23,7 @@
     height:150px;
     width: 500px;
     display: flex;
-    margin: 0 20px;
+    margin: 20px;
     align-items: center;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -52,7 +54,7 @@ form {
 }
 .Lists {
     width: 500px;
-    margin: 20px 20px 0px 0px;
+    margin: 20px ;
 }
 table {
     width: 500px;
@@ -74,5 +76,8 @@ table, th, td, tr {
     color: red;
     font-size: 14px;
 }
-
+.tableButton{
+    border: none;
+    background-color: white;
+}
 

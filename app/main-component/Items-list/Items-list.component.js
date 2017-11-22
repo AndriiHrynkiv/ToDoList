@@ -16,11 +16,13 @@ function CreateItemsList($scope) {
     vm.updatedList = vm.list;
     
     $scope.$on('eventBroadcastedName', function (event, data) {
+       // debugger;
         vm.updatedList = data;
         $scope.$apply();
     });
 
     vm.sortBy = function (propertyName) {
+        vm.reverse = (vm.propertyName === propertyName) ? !vm.reverse : false;
         vm.propertyName = propertyName;
     };
 

@@ -27,15 +27,21 @@ function collectComponents($scope) {
             } else if (vm.itemHours.getHours() < vm.currentHours) {
                 x.Done = true;
                 return x;
-            }
-            else { return x; }
+            } else { return x; }
         };
-        vm.itemsList = vm.storageList.map(getNewArray);
 
-        localStorage.setItem('todoList', JSON.stringify(vm.itemsList));
+        function getNearItem(x, y) {
+            return x.byTime > y.byTime;
+        }
+
+        vm.itemsList = vm.storageList.map(getNewArray);
+        vm.sortedList = vm.storageList.sort(getNearItem);
+
+        localStorage.setItem('todoList', JSON.stringify(vm.sortedList));
         vm.storageList = JSON.parse(localStorage.getItem('todoList'));
         return vm.storageList;
     };
+
 
     vm.Data = function (item) {
         vm.item = item;
@@ -44,9 +50,15 @@ function collectComponents($scope) {
     };
 
     setInterval(function () {
+        // debugger;
+        //     vm.previousList = JSON.parse(localStorage.getItem('todoList'));
         vm.filterListbyTime();
+        //     if (vm.previousList !== vm.storageList) {
         $scope.$broadcast('eventBroadcastedName', vm.storageList);
+        //     }
+        // }
     }, 1000);
+
 }
 
 
