@@ -1,0 +1,25 @@
+
+<div class = "Lists">
+    <table>
+        <tr >
+            <td>Name<span class="caret" ng-click="vm.sortBy('personName')"></span></span></td>
+            <td>Phone number</td>
+            <td>Time<span class="caret" ng-click="vm.sortBy('byTime')"></span></td>
+            <td>Delete</td>
+            <td></td>
+        </tr>
+        <tr ng-repeat="oneitem in vm.updatedList | orderBy:vm.propertyName | filter: myFilter track by $index">
+                <td>{{oneitem.personName }}</td>
+                <td>{{oneitem.Phone}}</td>
+                <td>{{oneitem.byTime | date : "HH:mm"}}</td>
+                <td><a ng-click="vm.removeData($index)">delete</a></td>
+                <td><input type="checkbox" ng-model="oneitem.Done" disabled></input></td>
+        
+        </tr>
+    </table>
+    <div class="buttons">
+        <button class="Filters" ng-click="myFilter = {}">All</button>
+        <button class="Filters" ng-click="myFilter = {Done: false}">Next</button>
+        <button class="Filters" ng-click="myFilter = {Done: true}">Finished</button>
+    </div>
+</div>

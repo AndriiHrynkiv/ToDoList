@@ -19,9 +19,9 @@
 .form-field{
     border: 2px solid black;
     height:150px;
-    margin: 20px;
     width: 500px;
     display: flex;
+    margin: 0 20px;
     align-items: center;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -34,7 +34,6 @@
 .nextItem {
     width: 130px;
     height: 30px;
-
     border: 2px solid black;
     padding: 3px;
 }
@@ -53,8 +52,7 @@ form {
 }
 .Lists {
     width: 500px;
-   
-    margin:20px;
+    margin: 20px 20px 0px 0px;
 }
 table {
     width: 500px;
@@ -76,3 +74,5 @@ table, th, td, tr {
     color: red;
     font-size: 14px;
 }
+
+

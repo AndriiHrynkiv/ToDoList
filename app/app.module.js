@@ -1,3 +1,1 @@
-angular.module('toDoList', [
-  'addItem',
-]);
+angular.module('toDoList',[]);
