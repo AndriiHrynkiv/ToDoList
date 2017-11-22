@@ -16,24 +16,24 @@ function CollectFormsData() {
 
     vm.fromForm = function () {
 
-        // if (vm.personName === undefined || vm.Phone === undefined || vm.byTime === null) {
-        //     vm.error = 'Please fill all fields';
-        //     return;
-        // } else { vm.error = ''; }
+        if (vm.personName === undefined || vm.Phone === undefined || vm.byTime === null) {
+            vm.error = 'Please fill all fields';
+            return;
+        } else { vm.error = ''; }
 
-        // var checPhone = /^(\+|00)(\d|\()(\d|\,|\-|\)|\s){7}(\d|\s)+$/g.test(vm.Phone);
-        // var PhoneChekcPart = vm.Phone.slice(2, 8);
-        // var testExpresin = /(\,|\-)/g;
+        var checPhone = /^(\+|00)(\d|\()(\d|\,|\-|\)|\s){7}(\d|\s)+$/g.test(vm.Phone);
+        var PhoneChekcPart = vm.Phone.slice(2, 8);
+        var testExpresin = /(\,|\-)/g;
 
-        // if (checPhone === false) {
-        //     vm.error = 'Please enter correct phone number';
-        //     return;
-        // } else { vm.error = ''; }
+        if (checPhone === false) {
+            vm.error = 'Please enter correct phone number';
+            return;
+        } else { vm.error = ''; }
 
-        // if (PhoneChekcPart.match(testExpresin) && PhoneChekcPart.match(testExpresin).length > 1) {
-        //     vm.error = 'Please enter correct phone number';
-        //     return;
-        // } else { vm.error = ''; }
+        if (PhoneChekcPart.match(testExpresin) && PhoneChekcPart.match(testExpresin).length > 1) {
+            vm.error = 'Please enter correct phone number';
+            return;
+        } else { vm.error = ''; }
 
         vm.items = {
             personName: vm.personName,

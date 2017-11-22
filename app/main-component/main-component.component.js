@@ -37,13 +37,12 @@ function collectComponents($scope) {
         return vm.storageList;
     };
 
-
     vm.Data = function (item) {
         vm.item = item;
         vm.storageList.push(item);
         vm.filterListbyTime();
     };
-    
+
     setInterval(function () {
         vm.filterListbyTime();
         $scope.$broadcast('eventBroadcastedName', vm.storageList);
