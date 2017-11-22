@@ -50,14 +50,12 @@ function collectComponents($scope) {
     };
 
     setInterval(function () {
-        // debugger;
-        //     vm.previousList = JSON.parse(localStorage.getItem('todoList'));
+        vm.previousList = JSON.parse(localStorage.getItem('todoList'));
         vm.filterListbyTime();
-        //     if (vm.previousList !== vm.storageList) {
-        $scope.$broadcast('eventBroadcastedName', vm.storageList);
-        //     }
-        // }
-    }, 1000);
+        if (!(angular.equals(vm.previousList, vm.storageList))) {
+            $scope.$broadcast('eventBroadcastedName', vm.storageList);
+        }
+    }, 10000);
 
 }
 

@@ -24,7 +24,6 @@ function showNextItem($scope) {
     }
 
     $scope.$on('eventBroadcastedName', function (event, data) {
-        debugger;
         vm.updatedList = data;
         vm.near = vm.updatedList.filter(function (x) {
             return x.Done === false;
