@@ -15,7 +15,7 @@ function showNextItem($scope) {
     var vm = this;
 
     function getNearItem(a, b) {
-        if (a.byTime < b.byTime) {
+        if (a.byTime < b.byTime) { // it's better to use ternary operator '?' there;
             return a;
         }
         else {
@@ -23,7 +23,7 @@ function showNextItem($scope) {
         }
     }
 
-    $scope.$on('eventBroadcastedName', function (event, data) {
+    $scope.$on('eventBroadcastedName', function (event, data) { // please rename event name to more clear;
         vm.updatedList = data;
         vm.near = vm.updatedList.filter(function (x) {
             return x.Done === false;
