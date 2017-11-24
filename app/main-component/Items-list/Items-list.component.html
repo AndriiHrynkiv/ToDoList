@@ -5,15 +5,14 @@
                 <button class="tableButton" ng-click="vm.sortBy('personName')" ng-model="personName">Name
                    <span class="sortorder" ng-show="vm.propertyName === 'personName'" ng-class="{reverse:vm.reverse}"></span>
                    <span ng-hide="vm.propertyName === 'personName'">&#x029EB</span>
-           </button>
+                </button>
             </td>
             <td>Phone number</td>
             <td>
                 <button class="tableButton" ng-click="vm.sortBy('byTime')">Time
-                        <span class="sortorder" ng-show="vm.propertyName === 'byTime'" ng-class="{reverse:vm.reverse}"></span>
-                        <span ng-hide="vm.propertyName === 'byTime'">&#x029EB</span>
+                    <span class="sortorder" ng-show="vm.propertyName === 'byTime'" ng-class="{reverse:vm.reverse}"></span>
+                    <span ng-hide="vm.propertyName === 'byTime'">&#x029EB</span>
             </button>
-
             </td>
             <td>Delete</td>
             <td></td>
