@@ -6,7 +6,7 @@ angular.
             deleteData: '&'
         },
         templateUrl: 'main-component/items-list/items-list.component.html',
-        controller: ('CreateItemsList', ['$scope', createItemsList]),
+        controller: ('createItemsList', ['$scope', createItemsList]),
         controllerAs: 'vm'
     });
 
@@ -14,7 +14,6 @@ angular.
 function createItemsList($scope) {
 
     var vm = this;
-
 
     $scope.$on('sentUpdatedbyTimeList', function (event, data) {
         vm.updatedList = data;
@@ -24,7 +23,7 @@ function createItemsList($scope) {
     vm.sortBy = function (propertyName) {
         vm.reverse = (vm.propertyName === propertyName) ? !vm.reverse : false;
         vm.propertyName = propertyName;
-    };  
+    };
 }
 
 

@@ -6,16 +6,16 @@ angular.
             data: '&'
         },
         templateUrl: 'main-component/add-item/add-item.template.html',
-        controller: ('CollectFormsData', CollectFormsData),
+        controller: ('collectFormsData', collectFormsData),
         controllerAs: 'vm'
     });
 
-function CollectFormsData() {
+function collectFormsData() {
 
     var vm = this;
 
     vm.cleanForm = function () {
-        vm.items = {
+        vm.itemToAdd = {
             personName: vm.personName = '',
             Phone: vm.Phone = '',
             byTime: vm.byTime = null,
@@ -29,14 +29,14 @@ function CollectFormsData() {
             return;
         }
 
-        vm.items = {
+        vm.itemToAdd = {
             personName: vm.personName,
             Phone: (((vm.Phone).replace(/\+/, '00')).replace(/(\(|\)|-)/g, '')),
             byTime: vm.byTime,
             Done: false
         };
 
-        vm.data({ item: vm.items });
+        vm.data({ itemToAdd: vm.itemToAdd });
 
         vm.cleanForm();
     };

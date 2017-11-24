@@ -16,16 +16,16 @@ function collectComponents($scope) {
         } else { return vm.storageList = JSON.parse(localStorage.getItem('todoList')); }
     };
 
-    var sentListToLocalStorage = function () {
+    function sentListToLocalStorage() {
         localStorage.setItem('todoList', JSON.stringify(vm.sortedList));
         vm.storageList = JSON.parse(localStorage.getItem('todoList'));
-    };
+    }
 
-    var sortByTime = function (x, y) {
+    function sortByTime(x, y) {
         return x.byTime > y.byTime;
-    };
+    }
 
-    var checkItemsDoneState = function () {
+    function checkItemsDoneState() {
 
         vm.currentHours = (new Date().getHours());
         vm.currentMinutes = (new Date().getMinutes());
@@ -39,33 +39,30 @@ function collectComponents($scope) {
         };
         vm.itemsList = vm.storageList.map(getNewArray);
         vm.sortedList = vm.itemsList.sort(sortByTime);
-    };
+    }
 
-    var updateLocalStorage = function (index) {
+    function updateLocalStorage(index) {
         var updatedList = vm.storageList.splice(index, 1);
         localStorage.clear();
         localStorage.setItem('todoList', JSON.stringify(updatedList));
-    };
+    }
 
     vm.removeData = function (index) {
         updateLocalStorage(index);
     };
 
     var monitoringListByTime = setInterval(function () {
-        //debugger;
         // vm.previousList = JSON.parse(localStorage.getItem('todoList'));
         checkItemsDoneState();
         sentListToLocalStorage();
-
         //   if (!(angular.equals(vm.previousList, vm.storageList))) {
         $scope.$broadcast('sentUpdatedbyTimeList', vm.storageList);
         // }
     }, 2000);
 
-    vm.addItemtoList = function (item) {
-        vm.item = item;
-        vm.storageList.push(item);
-
+    vm.addItemtoList = function (itemToAdd) {
+        vm.itemToAdd = itemToAdd;
+        vm.storageList.push(itemToAdd);
         checkItemsDoneState();
         sentListToLocalStorage();
 

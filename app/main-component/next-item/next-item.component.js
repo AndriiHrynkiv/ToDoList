@@ -17,6 +17,7 @@ function showNextItem($scope) {
     function getNearItem(a, b) {
         return ((a.byTime < b.byTime) ? a : b);
     }
+
     $scope.$on('sentUpdatedbyTimeList', function (event, data) {
         vm.updatedList = data;
         vm.near = vm.updatedList.filter(function (x) {
@@ -25,14 +26,6 @@ function showNextItem($scope) {
         vm.nextItem = vm.near.reduce(getNearItem);
         $scope.$apply();
     });
-
-    vm.$onDestroy = function () {
-        vm.near = vm.updatedList.filter(function (x) {
-            return x.Done === false;
-        });
-        vm.nextItem = vm.near.reduce(getNearItem);
-        $scope.$apply();
-    };
 }
 
 
