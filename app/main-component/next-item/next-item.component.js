@@ -15,15 +15,9 @@ function showNextItem($scope) {
     var vm = this;
 
     function getNearItem(a, b) {
-        if (a.byTime < b.byTime) {
-            return a;
-        }
-        else {
-            return b;
-        }
+        return ((a.byTime < b.byTime) ? a : b);
     }
-
-    $scope.$on('eventBroadcastedName', function (event, data) {
+    $scope.$on('sentUpdatedbyTimeList', function (event, data) {
         vm.updatedList = data;
         vm.near = vm.updatedList.filter(function (x) {
             return x.Done === false;
@@ -31,6 +25,14 @@ function showNextItem($scope) {
         vm.nextItem = vm.near.reduce(getNearItem);
         $scope.$apply();
     });
+
+    vm.$onDestroy = function () {
+        vm.near = vm.updatedList.filter(function (x) {
+            return x.Done === false;
+        });
+        vm.nextItem = vm.near.reduce(getNearItem);
+        $scope.$apply();
+    };
 }
 
 

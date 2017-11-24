@@ -1,30 +1,16 @@
-
 <div class="form-field">
     <p class="blockTitle">Add Call</p>
-    <form name="Data" ng-submit="vm.fromForm()">
-        <input type="text" ng-model="vm.personName" placeholder="Name" maxlength="30"></input>
-        <input type="tel" ng-model="vm.Phone"  placeholder="Phone number" maxlength="18"></input>
-        <input type="time" ng-model="vm.byTime"></input>
-        <input type="submit" value="Add" ></input>
+    <form name="Data" ng-submit="vm.onSubmit()" novalidate>
+        <input required type="text" ng-model="vm.personName" placeholder="Name" ng-maxlength="30" name="personName"></input>
+        <input required type="tel" ng-model="vm.Phone" placeholder="Phone number" ng-pattern="/^(\+|00)(\d|\()(\d|\,|\-|\)|\s){7}(\d|\s)+$/"
+            ng-maxlength="18" name="Phone"></input>
+        <input type="time" ng-model="vm.byTime" name="Time" required></input>
+        <input type="submit" value="Add"></input>
     </form>
-  <p class="errormg">{{vm.error}}</p>
+    <p class="errormg" ng-show="Data.personName.$error.maxlength">Name is too long (should be less than 30 characters).</p>
+    <p class="errormg" ng-show="Data.Phone.$error.maxlength">Phone is too long (should be less than 18 characters).</p>
+    <p class="errormg" ng-show="Data.Phone.$error.pattern">Please put correct phone number.</p>
+    <p class="errormg" ng-show="Data.personName.$error.required && Data.$submitted">Please add name.</p>
+    <p class="errormg" ng-show="Data.Phone.$error.required && Data.$submitted">Please add phone.</p>
+    <p class="errormg" ng-show="Data.Time.$error.required && Data.$submitted">Please add time.</p>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

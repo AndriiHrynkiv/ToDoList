@@ -80,4 +80,9 @@ table, th, td, tr {
     border: none;
     background-color: white;
 }
-
+.sortorder:after  {
+    content: '\25B4';
+}
+.sortorder.reverse:after {
+    content: '\25BE';   
+  }

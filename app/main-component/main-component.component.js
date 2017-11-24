@@ -10,55 +10,65 @@ function collectComponents($scope) {
 
     var vm = this;
 
-    if (!localStorage.key('todoList')) {
-        vm.storageList = [];
-    } else { vm.storageList = JSON.parse(localStorage.getItem('todoList')); }
+    vm.$onInit = function () {
+        if (!localStorage.key('todoList')) {
+            return vm.storageList = [];
+        } else { return vm.storageList = JSON.parse(localStorage.getItem('todoList')); }
+    };
 
+    var sentListToLocalStorage = function () {
+        localStorage.setItem('todoList', JSON.stringify(vm.sortedList));
+    };
 
-    vm.filterListbyTime = function () {
+    var checkItemsDoneState = function () {
 
         vm.currentHours = (new Date().getHours());
         vm.currentMinutes = (new Date().getMinutes());
+
         var getNewArray = function (x) {
             vm.itemHours = new Date(x.byTime);
-            if (vm.itemHours.getHours() === vm.currentHours && vm.itemHours.getMinutes() < vm.currentMinutes) {
+            if ((vm.itemHours.getHours() < vm.currentHours) || (vm.itemHours.getHours() === vm.currentHours && vm.itemHours.getMinutes() < vm.currentMinutes)) {
                 x.Done = true;
-                return x;
-            } else if (vm.itemHours.getHours() < vm.currentHours) {
-                x.Done = true;
-                return x;
-            } else { return x; }
+            }
+            return x;
         };
 
         function getNearItem(x, y) {
             return x.byTime > y.byTime;
         }
-
         vm.itemsList = vm.storageList.map(getNewArray);
         vm.sortedList = vm.itemsList.sort(getNearItem);
+        sentListToLocalStorage();
+    };
 
-        localStorage.setItem('todoList', JSON.stringify(vm.sortedList));
-        vm.storageList = JSON.parse(localStorage.getItem('todoList'));
-        return vm.storageList;
+    var updateLocalStorage = function (index) {
+        var updatedList = vm.storageList.splice(index, 1);
+        localStorage.clear();
+        localStorage.setItem('todoList', JSON.stringify(updatedList));
+    };
+
+    vm.removeData = function (index) {
+        updateLocalStorage(index);
     };
 
 
-    vm.Data = function (item) {
+    var monitoringListByTime = setInterval(function () {
+        // vm.previousList = JSON.parse(localStorage.getItem('todoList'));
+        checkItemsDoneState();
+        //   if (!(angular.equals(vm.previousList, vm.storageList))) {
+        $scope.$broadcast('sentUpdatedbyTimeList', vm.storageList);
+        // }
+    }, 2000);
 
+    vm.addItemtoList = function (item) {
         vm.item = item;
         vm.storageList.push(item);
-        vm.filterListbyTime();
-
+        checkItemsDoneState();
     };
 
-    setInterval(function () {
-        // vm.previousList = JSON.parse(localStorage.getItem('todoList'));
-        vm.filterListbyTime();
-        //if (!(angular.equals(vm.previousList, vm.storageList))) {
-        $scope.$broadcast('eventBroadcastedName', vm.storageList);
-        // }
-    }, 1000);
-
+    vm.$onDestroy = function () {
+        clearInterval(monitoringListByTime);
+    };
 }
 
 

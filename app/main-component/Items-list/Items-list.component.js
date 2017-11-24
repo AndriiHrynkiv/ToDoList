@@ -2,20 +2,21 @@ angular.
     module('toDoList').
     component('itemsList', {
         bindings: {
-            list: '<'
+            list: '<',
+            deleteData: '&'
         },
         templateUrl: 'main-component/items-list/items-list.component.html',
-        controller: ('CreateItemsList', ['$scope', CreateItemsList]),
+        controller: ('CreateItemsList', ['$scope', createItemsList]),
         controllerAs: 'vm'
     });
 
 
-function CreateItemsList($scope) {
+function createItemsList($scope) {
 
     var vm = this;
-    vm.updatedList = vm.list;
 
-    $scope.$on('eventBroadcastedName', function (event, data) {
+
+    $scope.$on('sentUpdatedbyTimeList', function (event, data) {
         vm.updatedList = data;
         $scope.$apply();
     });
@@ -23,13 +24,7 @@ function CreateItemsList($scope) {
     vm.sortBy = function (propertyName) {
         vm.reverse = (vm.propertyName === propertyName) ? !vm.reverse : false;
         vm.propertyName = propertyName;
-    };
-
-    vm.removeData = function (x) {
-        vm.updatedList.splice(x, 1);
-        localStorage.clear();
-        localStorage.setItem('todoList', JSON.stringify(vm.updatedList));
-    };
+    };  
 }
 
 
