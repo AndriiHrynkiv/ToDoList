@@ -23,9 +23,9 @@ function CollectFormsData() {
         };
     };
 
-    vm.onSubmit = function () {
+    vm.onSubmit = function (form) {
 
-        if (Data.$invalid || !vm.personName || !vm.Phone || !vm.byTime) {
+        if (form.$invalid) {
             return;
         }
 
