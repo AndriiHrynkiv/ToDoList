@@ -1,88 +1,37 @@
-.main {
-    border: 3px solid black;
-    width:70%;
-    height:90vh;
-    margin:auto;
-    overflow: auto;
-    display: flex;
-    flex-direction: row;
-}
-.main2 {
-    width:82%;
-    height:70vh;
-    margin: auto;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    flex-wrap: wrap;
-    justify-content: flex-end;
+next-item, add-item, items-list {
+  padding: 20px; }
 
-}
-.form-field{
-    border: 2px solid black;
-    height:150px;
-    width: 500px;
-    display: flex;
-    margin: 20px;
-    align-items: center;
-    flex-wrap: wrap;
-    justify-content: space-around;
-}
-.blockTitle {
-    width: 400px;
-    Font-size: 20px;
-}
+.nextItem, .addItem {
+  border: 2px solid #330066;
+  padding: 20px;
+  min-height: 250px; }
+  @media screen and (max-width: 1200px) {
+    .nextItem, .addItem {
+      min-height: 340px; } }
 
-.nextItem {
-    width: 130px;
-    height: 30px;
-    border: 2px solid black;
-    padding: 3px;
-}
-input {
-    max-width: 170px;
-    margin: 3px;
-}
-form {  
-    height:50px;
-    display: flex;
-    width: 480px;
-    align-items: center;
-    flex-wrap: wrap;
-    justify-content: flex-end;
-    margin-top: -20px;
-}
-.Lists {
-    width: 500px;
-    margin: 20px ;
-}
-table {
-    width: 500px;
-    
-}
-table, th, td, tr {
-    text-align: center;
-    border: 1px solid black;
-    border-collapse: collapse;
-    min-width: 30px;
-}
-.buttons{
-    margin:10px 0 0 0px;
-}
-.Filters{
-    margin:0 0 0 10px
-}
-.errormg{
-    color: red;
-    font-size: 14px;
-}
-.tableButton{
-    border: none;
-    background-color: white;
-}
-.sortorder:after  {
-    content: '\25B4';
-}
-.sortorder.reverse:after {
-    content: '\25BE';   
-  }
+.title {
+  font-size: 20px;
+  margin: 20px 20px; }
+
+.Item {
+  border: 1px solid #330066;
+  height: 35px;
+  margin-top: 15px;
+  border-radius: 5px;
+  padding: 7px;
+  text-align: center; }
+
+.errormg {
+  color: red;
+  display: flex;
+  justify-content: space-around; }
+
+.btn-primary {
+  background-color: #330066;
+  border: none; }
+
+.tableButton {
+  background-color: white;
+  border: none; }
+
+/*# sourceMappingURL=app.css.map */

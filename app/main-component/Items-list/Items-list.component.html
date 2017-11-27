@@ -1,34 +1,32 @@
-<div class="Lists">
-    <table>
-        <tr>
-            <td>
-                <button class="tableButton" ng-click="vm.sortBy('personName')" ng-model="personName">Name
+<table class="table table-bordered table-responsive table-hover">
+    <tr>
+        <td>
+            <button class="tableButton" ng-click="vm.sortBy('personName')" ng-model="personName">Name
                    <span class="sortorder" ng-show="vm.propertyName === 'personName'" ng-class="{reverse:vm.reverse}"></span>
                    <span ng-hide="vm.propertyName === 'personName'">&#x029EB</span>
                 </button>
-            </td>
-            <td>Phone number</td>
-            <td>
-                <button class="tableButton" ng-click="vm.sortBy('byTime')">Time
+        </td>
+        <td>Phone number</td>
+        <td>
+            <button class="tableButton" ng-click="vm.sortBy('byTime')">Time
                     <span class="sortorder" ng-show="vm.propertyName === 'byTime'" ng-class="{reverse:vm.reverse}"></span>
                     <span ng-hide="vm.propertyName === 'byTime'">&#x029EB</span>
             </button>
-            </td>
-            <td>Delete</td>
-            <td></td>
-        </tr>
-        <tr ng-repeat="oneitem in vm.list | orderBy: vm.propertyName: vm.reverse | filter: myFilter track by $index">
-            <td>{{oneitem.personName }}</td>
-            <td>{{oneitem.Phone}}</td>
-            <td>{{oneitem.byTime | date : "HH:mm"}}</td>
-            <td><a ng-click="vm.deleteData({index: $index})">delete</a></td>
-            <td><input type="checkbox" ng-model="oneitem.Done" disabled></input>
-            </td>
-        </tr>
-    </table>
-    <div class="buttons">
-        <button class="Filters" ng-click="myFilter = {}">All</button>
-        <button class="Filters" ng-click="myFilter = {Done: false}">Next</button>
-        <button class="Filters" ng-click="myFilter = {Done: true}">Finished</button>
-    </div>
+        </td>
+        <td>Delete</td>
+        <td></td>
+    </tr>
+    <tr ng-repeat="oneitem in vm.list | orderBy: vm.propertyName: vm.reverse | filter: myFilter track by $index">
+        <td>{{oneitem.personName }}</td>
+        <td>{{oneitem.Phone}}</td>
+        <td>{{oneitem.byTime | date : "HH:mm"}}</td>
+        <td><a ng-click="vm.deleteData({index: $index})">delete</a></td>
+        <td><input type="checkbox" ng-model="oneitem.Done" disabled></input>
+        </td>
+    </tr>
+</table>
+<div class="btn-group ">
+    <button class="btn btn-primary" ng-click="myFilter = {}">All</button>
+    <button class="btn btn-primary" ng-click="myFilter = {Done: false}">Next</button>
+    <button class="btn btn-primary" ng-click="myFilter = {Done: true}">Finished</button>
 </div>

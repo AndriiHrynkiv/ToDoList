@@ -1,0 +1,39 @@
+
+$main_color: #330066;
+next-item, add-item, items-list{
+    padding: 20px;
+}
+.nextItem, .addItem{
+    border: 2px solid $main_color;
+    padding: 20px;
+    min-height: 250px; 
+        @media screen and (max-width: 1200px)  {
+            min-height: 340px; 
+        }
+}
+.title{
+    font-size: 20px;
+    margin: 20px 20px;
+}
+.Item {
+    border: 1px solid $main_color;
+    height: 35px;
+    margin-top: 15px;
+    border-radius: 5px;
+    padding: 7px;
+    text-align: center;
+}
+.errormg{
+    color: red;
+    display: flex;
+    justify-content: space-around;
+}
+.btn-primary {
+    background-color: $main_color;
+    border: none;
+}
+.tableButton{
+    background-color: white;
+    border: none;
+}
+

@@ -1,25 +1,22 @@
 {
+    "extends": ["@eleks/eleks", "angular"],
     "env": {
-        "browser": true,
-        "commonjs": true
-    },
-    "extends": "eslint:recommended",
-    "rules": {
-        "indent": [
-            "error",
-            4
-        ],
-        "linebreak-style": [
-            "error",
-            "windows"
-        ],
-        "quotes": [
-            "error",
-            "single"
-        ],
-        "semi": [
-            "error",
-            "always"
-        ]
-    }
-}
+       "es6": false
+     },
+     "parserOptions": {
+       "ecmaVersion": 5,
+       "sourceType": "script"
+     },
+     "rules": {
+       "space-before-function-paren": [
+         1,
+         "never"
+       ],
+       "curly": [
+         1,
+         "multi"
+       ],
+       "one-var": 1,
+       "object-shorthand": 1
+     }
+ }

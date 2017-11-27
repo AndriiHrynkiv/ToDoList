@@ -1,6 +1,14 @@
-<div class="form-field">
-    <p class="blockTitle">Next Call</p>
-    <p class="nextItem">{{vm.nextItem.personName}}</p> 
-    <p class="nextItem">{{vm.nextItem.Phone}}</p>
-    <p class="nextItem">{{vm.nextItem.byTime | date : "HH:mm"}}</p>
-</div
+<div class="nextItem">
+    <div class="title">
+        <p>Next Call</p>
+    </div>
+    <div class="Item col-lg-3">
+        <p>{{vm.nextItem.personName}}</p>
+    </div>
+    <div class="Item col-lg-3 col-lg-offset-1">
+        <p>{{vm.nextItem.Phone}}</p>
+    </div>
+    <div class="Item col-lg-3 col-lg-offset-1">
+        <p>{{vm.nextItem.byTime | date : "HH:mm"}}</p>
+    </div>
+</div>
