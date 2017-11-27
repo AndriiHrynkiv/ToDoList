@@ -21,11 +21,9 @@ next-item, add-item, items-list {
   padding: 7px;
   text-align: center; }
 
-.errormg {
+.invalid-feedback {
   color: red;
-  display: flex;
-  justify-content: space-around; }
-
+ }
 .btn-primary {
   background-color: #330066;
   border: none; }
